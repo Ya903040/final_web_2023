@@ -8,19 +8,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomUserDetail  extends User implements UserDetails {
-public CustomUserDetail (User user){
-    super(user);
-}
+public class CustomUserDetail extends User implements UserDetails {
+
+    public CustomUserDetail(User user) {
+        super(user);
+    }
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-List<GrantedAuthority> authorityList = new ArrayList<>();
-super.getRoles().forEach(role ->{
-    authorityList.add(new SimpleGrantedAuthority(role.getName()));
-});
-return authorityList;
+        List<GrantedAuthority> authorityList = new ArrayList<>();
+        super.getRoles().forEach(role -> {
+            authorityList.add(new SimpleGrantedAuthority(role.getName()));
+        });
+        return authorityList;
     }
 
     @Override
@@ -35,7 +36,7 @@ return authorityList;
 
 
     @Override
-    public boolean isAccountNonExpired() {
+    public boolean isAccountNonExpired()  {
         return true;
     }
 

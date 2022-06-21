@@ -62,16 +62,16 @@ public class AdminController {
         return "redirect:/admin/categories";
     }
 
-    @GetMapping("/admin/categories/update/{id}")
-    public String updateCat(@PathVariable int id, Model model) {
-        Optional<Category> category = categoryService.getCategoryById(id);
-        if (category.isPresent()) {
-            model.addAttribute("category", category.get());
-            return "categoriesAdd";
-        } else {
-            return "404";
+        @GetMapping("/admin/categories/update/{id}")
+        public String updateCat(@PathVariable int id, Model model) {
+            Optional<Category> category = categoryService.getCategoryById(id);
+            if (category.isPresent()) {
+                model.addAttribute("category", category.get());
+                return "categoriesAdd";
+            } else {
+                return "404";
+            }
         }
-    }
 
 //product section
 
