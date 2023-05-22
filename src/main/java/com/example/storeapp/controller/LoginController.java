@@ -56,7 +56,7 @@ public class LoginController {
 
     @PostMapping("/register")
     public String registerPost(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
-        try {
+
 
             String password = user.getPassword();
             user.setPassword(bCryptPasswordEncoder.encode((password)));
@@ -68,10 +68,7 @@ public class LoginController {
             request.login(user.getEmail(), password);
             return "redirect:/";
 
-        }catch (Exception e){
-            return "error_email";
 
-        }
 
         /* if(!userRepository.existsByEmail(user.getEmail())){
             String password = user.getPassword();

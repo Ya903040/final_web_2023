@@ -7,6 +7,12 @@ import com.example.storeapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+/*spring.datasource.name=postgres
+spring.datasource.url=jdbc:postgresql://${PROD_DB_HOST}:${PROD_DB_PORT}/${PROD_DB_NAME}
+spring.datasource.username=${PROD_DB_USERNAME}
+spring.datasource.password=${PROD_DB_PASSWORD}
+spring.jpa.hibernate.ddl-auto=update
+*/
 
 /**
  * @author AsiroMan
