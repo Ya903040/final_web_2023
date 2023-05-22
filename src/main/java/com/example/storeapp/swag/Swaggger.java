@@ -1,21 +1,21 @@
-package com.example.storeapp.controller;
+package com.example.storeapp.swag;
 
 import com.example.storeapp.global.GlobalData;
 import com.example.storeapp.mailSender.EmailSender;
 import com.example.storeapp.model.Product;
-import com.example.storeapp.model.User;
 import com.example.storeapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author AsiroMan
+ */
 
-@Controller
-public class CartController {
+@RestController
+@RequestMapping("/swag")
+public class Swaggger {
+
     @Autowired
     ProductService productService;
 
@@ -64,7 +64,7 @@ public class CartController {
                          @RequestParam("phone") String phone,
                          @RequestParam("emailSend") String emailSend,
                          @RequestParam("information") String information
-                         ){
+    ){
 
         System.out.println(emailSend);
         emailSender.sendEmail(emailSend, firstname+" "+lastname+" " + address1, address2+" "+postcode+" "+ city, phone+" " + information);
@@ -78,5 +78,4 @@ public class CartController {
 
         return "payNow";
     }
-
 }
