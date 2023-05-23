@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @Controller
 public class AdminController {
-    public  static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
+    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
 
 
     @Autowired
@@ -62,16 +62,16 @@ public class AdminController {
         return "redirect:/admin/categories";
     }
 
-        @GetMapping("/admin/categories/update/{id}")
-        public String updateCat(@PathVariable int id, Model model) {
-            Optional<Category> category = categoryService.getCategoryById(id);
-            if (category.isPresent()) {
-                model.addAttribute("category", category.get());
-                return "categoriesAdd";
-            } else {
-                return "404";
-            }
+    @GetMapping("/admin/categories/update/{id}")
+    public String updateCat(@PathVariable int id, Model model) {
+        Optional<Category> category = categoryService.getCategoryById(id);
+        if (category.isPresent()) {
+            model.addAttribute("category", category.get());
+            return "categoriesAdd";
+        } else {
+            return "404";
         }
+    }
 
 //product section
 
@@ -91,7 +91,7 @@ public class AdminController {
     @PostMapping("/admin/products/add")
     public String productAddPost(@ModelAttribute("productDTO") ProductDTO productDTO,
                                  @RequestParam("productImage") MultipartFile file,
-                                    @RequestParam("imgName") String imgName) throws IOException {
+                                 @RequestParam("imgName") String imgName) throws IOException {
 
         Product product = new Product();
         product.setId(productDTO.getId());
@@ -127,18 +127,18 @@ public class AdminController {
 
     @GetMapping("/admin/product/update/{id}")
     public String updateProductGet(@PathVariable long id, Model model) {
-Product product = productService.getProductById(id).get();
-ProductDTO productDTO = new ProductDTO();
-productDTO.setId(product.getId());
-productDTO.setName(product.getName());
-productDTO.setCategoryId((product.getCategory().getId()));
-productDTO.setPrice(product.getPrice());
-productDTO.setWeight((product.getWeight()));
-productDTO.setDescription(product.getDescription());
-productDTO.setImageName(product.getImageName());
+        Product product = productService.getProductById(id).get();
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setId(product.getId());
+        productDTO.setName(product.getName());
+        productDTO.setCategoryId((product.getCategory().getId()));
+        productDTO.setPrice(product.getPrice());
+        productDTO.setWeight((product.getWeight()));
+        productDTO.setDescription(product.getDescription());
+        productDTO.setImageName(product.getImageName());
 
-model.addAttribute("categories",categoryService.getAllCategory());
-model.addAttribute("productDTO",productDTO);
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("productDTO", productDTO);
 
 
         return "productsAdd";
