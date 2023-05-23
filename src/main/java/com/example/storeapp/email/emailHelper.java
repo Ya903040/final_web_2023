@@ -1,4 +1,4 @@
-package com.example.storeapp.swag;
+package com.example.storeapp.email;
 
 import com.example.storeapp.global.GlobalData;
 import com.example.storeapp.mailSender.EmailSender;
@@ -20,7 +20,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 @RestController
 @RequestMapping("/swag")
-public class Swaggger {
+public class emailHelper {
 
     @Autowired
     ProductService productService;
