@@ -12,14 +12,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-/*
-    CustomUserDetailService customUserDetailService;
-*/
+
 
     @Autowired
     GoogleOAuth2SuccessHandler googleOAuth2SuccessHandler;
@@ -27,11 +26,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     CustomUserDetailService customUserDetailService;
 
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(
+                        "/webjars/**",
+                        "/img/**",
+                        "/css/**",
+                        "/js/**",
+                        "/png/**")
+                .addResourceLocations(
+                        "classpath:/META-INF/resources/webjars/",
+                        "classpath:/static/img/",
+                        "classpath:/static/css/",
+                        "classpath:/static/js/");
+    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "shop/**", "/register", "/h2-console/**").permitAll()
+                .antMatchers("/", "shop/**", "/register", "/h2-console/**", "/css/**,             \"/webjars/**\",\n" +
+                        "                \"/img/**\",\n" +
+                        "                \"/css/**\",\n" +
+                        "                \"/js/**\")", "/png/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
@@ -64,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder()   {
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -76,6 +91,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/image/**", "/productimages/**", "/css/**", "/js/**");
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/img/**", "/productimages/**", "/css/**", "/js/**");
     }
 }

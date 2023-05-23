@@ -12,62 +12,77 @@
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Document</title>
 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+
 </head>
-<body style="background: aqua">
+<body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img th:src="@{/images/logo.png}" src="../static/images/logo.png" width="auto" height="40"
-                 class="d-inline-block align-top" alt=""/>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="container-fluid banner">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-md">
+                <div class="container-fluid">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"></ul>
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/}" href="#">home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
-                </li>
-                <li class="nav-item active">
-                    <span class="nav-link" th:text="${cartCount}">0</span>
-                </li>
-            </ul>
+                    <a class="navbar-brand" href="home">
+                        <img th:src="@{'https://sun9-53.userapi.com/impg/O7qnNwzQjyDXCOm0sKv5mH1Cu2SerHJJ6zBhsA/peWW0N8EEpo.jpg?size=512x512&quality=95&sign=dcc2f61c797aa3d76332f53336a2cee4&c_uniq_tag=ZDBwIhn2E-A2l03Q-VIhPdSe0QNTSb3NreSVET6aQtU&type=album'}" src="https://sun9-53.userapi.com/impg/O7qnNwzQjyDXCOm0sKv5mH1Cu2SerHJJ6zBhsA/peWW0N8EEpo.jpg?size=512x512&quality=95&sign=dcc2f61c797aa3d76332f53336a2cee4&c_uniq_tag=ZDBwIhn2E-A2l03Q-VIhPdSe0QNTSb3NreSVET6aQtU&type=album" width="auto" height="50" class="d-inline-block align-top" alt=""/>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"style="color: red" >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
+
+                        <ul class="nav "></ul>
+                        <ul class="nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/}" href="#">home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
+                            </li>
+                            <li class="nav-item active">
+                                <span class="nav-link" th:text="${cartCount}">0</span>
+                            </li>
+                        </ul>
+
+
+
+                </div>
+
+            </nav>
         </div>
+    </div>
+
+    <div class="something">
+        <canvas id="canvas"></canvas>
+
+        <p>
+            Use the left, right and up arrow keys to move.
+            <br>
+            if you want you can play.
+        </p>
 
 
     </div>
 
-</nav>
-
-<div><p>welcome!</p></div>
-<div style="text-align: center">
-    <p></p>
-
-    <p></p>
-    <a href="https://youtu.be/dQw4w9WgXcQ"><img
-            src="https://www.freecodecamp.org/news/content/images/2022/02/Screenshot-2022-02-06-at-10.29.02-PM.png"
-            alt="click me">
-    </a>
-    <p></p>
 </div>
+
+<script src="../static/js/main.js"></script>
+<script src="js/main.js" defer></script>
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -77,5 +92,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
 </body>
+
+
 </html>

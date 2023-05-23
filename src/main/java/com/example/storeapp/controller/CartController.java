@@ -69,10 +69,6 @@ public class CartController {
         System.out.println(emailSend);
         emailSender.sendEmail(emailSend, firstname+" "+lastname+" " + address1, address2+" "+postcode+" "+ city, phone+" " + information);
 
-/*
-        emailSender.sendEmail(emailSend, "seffse", "suehfkfhs", "eilhf");
-*/
-
 
 
 
