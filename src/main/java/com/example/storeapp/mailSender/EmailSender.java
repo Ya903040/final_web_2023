@@ -18,7 +18,7 @@ public class EmailSender {
 
         message.setFrom("addafaidn184@gmail.com");
         message.setTo(toEmail);
-        message.setText("Good job");
+        message.setText("thank you");
         message.setSubject(subject+" and ur good's id is: ");
         message.setSubject(code);
         mailSender.send(message);
