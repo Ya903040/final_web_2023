@@ -35,6 +35,12 @@ public class HomeController {
         return "shop";
     }
 
+    @GetMapping("about")
+    public String about(){
+
+        return "about";
+    }
+
     @GetMapping("/shop/category/{id}")
     public String shopByCategory(Model model, @PathVariable int id){
         model.addAttribute("categories",categoryService.getAllCategory());

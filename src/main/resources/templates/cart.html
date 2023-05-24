@@ -16,13 +16,16 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="App-logo navbar-brand" th:href="@{/}">
 
-<img th:src="@{https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png}" src="https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png" width="auto" height="50" class="d-inline-block align-top" alt=""/>
+            <img th:src="@{https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png}"
+                 src="https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png" width="auto"
+                 height="50" class="d-inline-block align-top" alt=""/>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -34,6 +37,9 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/about}" href="#">about</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
@@ -75,7 +81,8 @@
                                     <div class="mb-3 mb-md-0">
                                         <img class="img-fluid w-100"
                                              th:src="@{${'/productImages/' + item.imageName}}"
-                                             src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg" alt="Sample">
+                                             src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                                             alt="Sample">
 
                                     </div>
                                 </div>
@@ -84,32 +91,35 @@
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h5 th:text="${item.name}">Blue denim shirt</h5>
-                                                <p class="mb-3 text-uppercase small">Weight: <span th:text="${item.weight}"></span> grams</p>
-<!--                                                <p class="mb-2 text-uppercase small">Category: <span th:text="${item.category.name}"></span></p>-->
+                                                <p class="mb-3 text-uppercase small">Weight: <span
+                                                        th:text="${item.weight}"></span> grams</p>
+                                                <!--                                                <p class="mb-2 text-uppercase small">Category: <span th:text="${item.category.name}"></span></p>-->
 
                                             </div>
 
                                         </div>
                                         <div class="mt-5 d-flex justify-content-between align-items-center">
                                             <div>
-                                                <a href="#!" th:href="@{/cart/removeItem/{index}(index=${iStat.index})}"  type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                <a href="#!" th:href="@{/cart/removeItem/{index}(index=${iStat.index})}"
+                                                   type="button"
+                                                   class="card-link-secondary small text-uppercase mr-3"><i
                                                         class="fas fa-trash-alt mr-1"></i> Remove item </a>
 
                                             </div>
-                                            <p class="mb-0"><span><strong>s<span th:text="${item.price}"></span></strong></span></p>
+                                            <p class="mb-0"><span><strong>s<span
+                                                    th:text="${item.price}"></span></strong></span></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <hr class="mb-4">
 
-                            <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+                            <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the
+                                purchase, adding
                                 items to your cart does not mean booking them.</p>
 
                         </div>
                     </div>
-
-
 
 
                 </div>
@@ -155,7 +165,8 @@
                     <div class="card mb-4">
                         <div class="card-body">
 
-                            <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
+                            <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse"
+                               href="#collapseExample"
                                aria-expanded="false" aria-controls="collapseExample">
                                 Add a discount code (optional)
                                 <span><i class="fas fa-chevron-down pt-1"></i></span>
@@ -188,11 +199,14 @@
 <div th:insert="footer :: footer"></div>
 
 
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>

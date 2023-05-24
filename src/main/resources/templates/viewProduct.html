@@ -21,7 +21,9 @@
     <div class="container-fluid">
         <a class="App-logo navbar-brand" th:href="@{/}">
 
-<img th:src="@{https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png}" src="https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png" width="auto" height="50" class="d-inline-block align-top" alt=""/>
+            <img th:src="@{https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png}"
+                 src="https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png" width="auto"
+                 height="50" class="d-inline-block align-top" alt=""/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +38,9 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/about}" href="#">about</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
@@ -65,7 +70,8 @@
             <p th:text="${product.category.name}"></p>
             <h2>s <span th:text="${product.price}"></span></h2>
             <h5>Weight:
-                <spna th:text="${product.weight}"></spna> grams.
+                <spna th:text="${product.weight}"></spna>
+                grams.
             </h5>
             <p th:text="${product.description}"></p>
             <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>

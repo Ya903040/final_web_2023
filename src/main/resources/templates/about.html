@@ -20,13 +20,13 @@
 <body>
 
 
-<div class="container-fluid banner">
+<div class="container-fluid banner" style="overflow: hidden; display: flex; flex-direction: column; min-height: 100vh;">
     <div class="row">
         <div class="col-md-12">
             <nav class="navbar navbar-md">
                 <div class="container-fluid">
 
-                    <a class="App-logo navbar-brand" href="home">
+                    <a class="App-logo navbar-brand" th:href="@{/}">
                         <img th:src="@{https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png}"
                              src="https://ocs.alatoo.edu.kg/pluginfile.php/1/core_admin/logo/0x200/1684703370/Logo.png"
                              width="auto" height="50" class="d-inline-block align-top" alt=""/>
@@ -45,9 +45,6 @@
                             <a class="nav-link" th:href="@{/}" href="#">home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/about}" href="#">about</a>
-                        </li>
-                        <li class="nav-item active">
                             <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
                         </li>
                         <li class="nav-item active">
@@ -63,7 +60,6 @@
                         <li class="nav-item active">
                             <span class="nav-link" th:text="${cartCount}">0</span>
                         </li>
-
                     </ul>
 
 
@@ -73,20 +69,17 @@
         </div>
     </div>
 
-    <div class="something">
-        <canvas id="canvas"></canvas>
+    <div style="height: 600px; text-align: center; display: flex; align-items: center; justify-content: center">
 
-        <p>
-            Use the left, right and up arrow keys to move.
-            <br>
-            if you want you can play.
-        </p>
+        <p class="" style="">
+            hello to everyone who came here. this is a web application for buying different things.
+            you can go to the main page and play the game or try to buy something and poke....... </p>
 
 
     </div>
+    <div th:insert="footer :: footer"></div>
 
 </div>
-<div th:insert="footer :: footer"></div>
 
 <script src="../static/js/main.js"></script>
 <script src="js/main.js" defer></script>
