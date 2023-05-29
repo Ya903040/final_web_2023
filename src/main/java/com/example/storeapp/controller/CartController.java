@@ -3,7 +3,6 @@ package com.example.storeapp.controller;
 import com.example.storeapp.global.GlobalData;
 import com.example.storeapp.mailSender.EmailSender;
 import com.example.storeapp.model.Product;
-import com.example.storeapp.model.User;
 import com.example.storeapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,12 +63,10 @@ public class CartController {
                          @RequestParam("phone") String phone,
                          @RequestParam("emailSend") String emailSend,
                          @RequestParam("information") String information
-                         ){
+    ) {
 
         System.out.println(emailSend);
-        emailSender.sendEmail(emailSend, firstname+" "+lastname+" " + address1, address2+" "+postcode+" "+ city, phone+" " + information);
-
-
+        emailSender.sendEmail(emailSend, firstname + " " + lastname + " " + address1, address2 + " " + postcode + " " + city, phone + " " + information);
 
 
         return "payNow";

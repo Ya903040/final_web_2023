@@ -19,7 +19,7 @@ public class HomeController {
 
 
     @GetMapping({"/", "/home"})
-    public String home(Model model){
+    public String home(Model model) {
         model.addAttribute("cartCount", GlobalData.cart.size());
 
         return "index";
@@ -27,40 +27,38 @@ public class HomeController {
 
 
     @GetMapping("/shop")
-    public String shop(Model model){
-        model.addAttribute("categories",categoryService.getAllCategory());
-        model.addAttribute("products",productService.getAllProduct());
-        model.addAttribute("cartCount",GlobalData.cart.size());
+    public String shop(Model model) {
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("products", productService.getAllProduct());
+        model.addAttribute("cartCount", GlobalData.cart.size());
 
         return "shop";
     }
 
     @GetMapping("about")
-    public String about(){
+    public String about() {
 
         return "about";
     }
 
     @GetMapping("/shop/category/{id}")
-    public String shopByCategory(Model model, @PathVariable int id){
-        model.addAttribute("categories",categoryService.getAllCategory());
-        model.addAttribute("cartCount",GlobalData.cart.size());
+    public String shopByCategory(Model model, @PathVariable int id) {
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("cartCount", GlobalData.cart.size());
 
-        model.addAttribute("products",productService.getAllProductsByCategoryId(id));
+        model.addAttribute("products", productService.getAllProductsByCategoryId(id));
 
         return "shop";
     }
 
     @GetMapping("/shop/viewproduct/{id}")
-    public String viewProduct(Model model, @PathVariable int id){
-        model.addAttribute("product",productService.getProductById(id).get());
-        model.addAttribute("cartCount",GlobalData.cart.size());
-
+    public String viewProduct(Model model, @PathVariable int id) {
+        model.addAttribute("product", productService.getProductById(id).get());
+        model.addAttribute("cartCount", GlobalData.cart.size());
 
 
         return "viewProduct";
     }
-
 
 
 }

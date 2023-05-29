@@ -16,25 +16,27 @@ public class ProductService {
     ProductRepository productRepository;
 
     @Transient
-    public List<Product> getAllProduct() { return productRepository.findAll(); }
+    public List<Product> getAllProduct() {
+        return productRepository.findAll();
+    }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         productRepository.save(product);
 
     }
 
-    public void removeProductById(long id){
+    public void removeProductById(long id) {
         productRepository.deleteById(id);
     }
 
     @Transient
-    public Optional<Product> getProductById(long id){
+    public Optional<Product> getProductById(long id) {
         return productRepository.findById(id);
 
     }
 
     @Transient
-    public List<Product> getAllProductsByCategoryId(int id){
+    public List<Product> getAllProductsByCategoryId(int id) {
         return productRepository.findAllByCategoryId(id);
     }
 
